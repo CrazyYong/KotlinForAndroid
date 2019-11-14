@@ -93,7 +93,8 @@ class Test{
         /**
          * 4:
          * as?操作符
-         * 其实这里是指as操作符，表示类型转换，如果不能正常转换的情况下使用as?操作符。当使用as操作符的使用不能正常的转换的情况下会抛出类型转换（ClassCastException）异常，而使用as?操作符则会返回null,但是不会抛出异常
+         * 其实这里是指as操作符，表示类型转换，如果不能正常转换的情况下使用as?操作符。
+         * 当使用as操作符的使用不能正常的转换的情况下会抛出类型转换（ClassCastException）异常，而使用as?操作符则会返回null,但是不会抛出异常
          */
         val num2 : Int? = "Koltin" as? Int
         print("num2 = $num2")
