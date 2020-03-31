@@ -13,6 +13,7 @@ annotation class Inject
  * class Test constructor(num : Int)
  */
 class TestOne(var num:Int){
+    protected val ccc:String="aaa"
 
     init {
         num = 5
@@ -58,9 +59,10 @@ class TestFive constructor(num1:Int =10,num2: Int=20){
 
 fun main() {
 //    var test1 = TestOne(2)
-//    var test4 = TestFour(1,2)
+    var testFour1 = TestFour(1)
+    var testFour2 = TestFour(2,2)
 
-    var testFive = TestFive()
-//    var testFive1 = TestFive
+//    var testFive1 = TestFive()
+//    var testFive2 = TestFive
 //    var testFive3 = TestFive(4,5,6)
 }
