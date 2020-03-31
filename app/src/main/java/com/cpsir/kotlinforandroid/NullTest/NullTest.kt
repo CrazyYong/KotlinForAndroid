@@ -4,17 +4,23 @@ package com.antonioleiva.weatherapp.test
  *@author Create by cpSir on 2019/11/2
  */
 class Test{
-    val arrTest :Array<Int?> = arrayOf(1,2,null,3,null,5,6,null)
-
+    /*定义一个不可为空的变量，用var修饰的变量可以被重新赋值，用val修饰的变量则不能，但是不能赋值为null*/
     /**
-     * ?:操作符
-     * 当我们定义了一个可空类型的变量时，如果该变量不为空，则使用，反之使用另外一个不为空的值
+     * 分析：要定义一个可空类型的变量时，即在定义变量的类型后面加上?符号就行了。在使用的时候，
+     * 记住要判断该段该变量是否为空，这个操作在Java中经常会用到...，
+     * 如果定义一个不可为空类型的变量时，则判断将毫无意义，因为这个变量永远不会为空。
      */
-    val testStr :String?=null
     var length=0
 
-    var name:String?="a"
+    /*
+    定义可空类型的变量,即变量可以被赋值为null
+    定义格式为：修饰符 变量名 ： 类型? = 值
+    */
+    val testStr :String?=null
 
+    val arrTest :Array<Int?> = arrayOf(1,2,null,3,null,5,6,null)
+
+    var name:String?="a"
 
     class Builder{
         private var name:String? = "Tom"
@@ -43,15 +49,15 @@ class Test{
         }
     }
 
-    fun main(args:Array<String>){
-        val builder:Test.Builder?=Test.Builder().setName("Lily")?.setSex("man")?.setAge(10)
+    fun main(){
+        val builder:Test.Builder ? = Test.Builder().setName("Lily")?.setSex("man")?.setAge(10)
         print(builder.toString())
 
         /**
          * 1:
          * let操作符
          * 当使用符号?.验证的时候忽略掉null
-         *
+         * 例:排除掉数组中的空元素
          */
         for (index in  arrTest){
             index?.let {
@@ -69,9 +75,10 @@ class Test{
         }
         print("$letList -- $letResult")
 
+
         /**
          * 2:
-         * ?:写法
+         * ?:当我们定义了一个可空类型的变量时，如果该变量不为空，则使用，反之使用另外一个不为空的值
          * 当testStr不为空时，输出其长度，反之输出-1
          * 传统写法
          * length = if (testStr != null) testStr.length else -1
@@ -103,7 +110,7 @@ class Test{
          * 5:
          * ?.操作符
          * 方法可空处理
-         * 在 java 中我们在调用对象方法的时候，如果对象为空，就出出现 NullPointerException 错误，
+         * 在 java 中我们在调用对象方法的时候，如果对象为空，就出现 NullPointerException 错误，
          * 在 kotlin 中为了避免这个问题，引入了 ?. 符号，来表示如果对象为空，就不执行这个方法。
          */
         /*当 name 为空的时候，代码 name?.length 不执行，完美了避开了空指针陷阱*/
@@ -122,4 +129,5 @@ class Test{
         name = null
         var size = name?.length
     }
+
 }
